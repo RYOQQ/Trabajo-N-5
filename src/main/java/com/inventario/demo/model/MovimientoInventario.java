@@ -21,13 +21,7 @@ public class MovimientoInventario {
 
     public MovimientoInventario() {}
 
-    public MovimientoInventario(Long id,
-                                Long productoId,
-                                TipoMovimiento tipo,
-                                int cantidad,
-                                String motivo,
-                                LocalDateTime fecha) {
-
+    public MovimientoInventario(Long id, Long productoId, TipoMovimiento tipo, int cantidad, String motivo, LocalDateTime fecha) {
         this.id = id;
         this.productoId = productoId;
         this.tipo = tipo;

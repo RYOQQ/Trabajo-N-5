@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Getter
 @Setter
 @ToString
@@ -22,13 +21,7 @@ public class Producto {
 
     public Producto() {}
 
-    public Producto(Long id,
-                    String nombre,
-                    String descripcion,
-                    double precio,
-                    Categoria categoria,
-                    int stock) {
-
+    public Producto(Long id, String nombre, String descripcion, double precio, Categoria categoria, int stock) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
