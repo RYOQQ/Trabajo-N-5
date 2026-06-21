@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.inventario.demo.dto.MovimientoRequest;
 import com.inventario.demo.exception.InsufficientStockException;
 import com.inventario.demo.exception.ResourceNotFoundException;
 import com.inventario.demo.model.MovimientoInventario;
@@ -27,27 +28,33 @@ public class MovimientoServiceImpl implements MovimientoService {
     }
 
     @Override
-    public MovimientoInventario registrarMovimiento(MovimientoInventario movimiento) {
+    public MovimientoInventario registrarMovimiento(MovimientoRequest request) {
 
-        Producto producto = productoRepo.findById(movimiento.getProductoId())
+        Producto producto = productoRepo.findById(request.productoId())
                 .orElseThrow(() ->
                         new ResourceNotFoundException("Producto no encontrado"));
 
-        if (movimiento.getTipo() == TipoMovimiento.ENTRADA) {
+        if (request.tipo() == TipoMovimiento.ENTRADA) {
 
-            producto.incrementarStock(movimiento.getCantidad());
+            producto.incrementarStock(request.cantidad());
 
         } else {
 
-            if (producto.getStock() < movimiento.getCantidad()) {
+            if (producto.getStock() < request.cantidad()) {
                 throw new InsufficientStockException("Stock insuficiente");
             }
 
-            producto.decrementarStock(movimiento.getCantidad());
+            producto.decrementarStock(request.cantidad());
         }
 
         productoRepo.save(producto);
 
+        MovimientoInventario movimiento = new MovimientoInventario();
+
+        movimiento.setProductoId(request.productoId());
+        movimiento.setTipo(request.tipo());
+        movimiento.setCantidad(request.cantidad());
+        movimiento.setMotivo(request.motivo());
         movimiento.setFecha(LocalDateTime.now());
 
         return movimientoRepo.save(movimiento);
