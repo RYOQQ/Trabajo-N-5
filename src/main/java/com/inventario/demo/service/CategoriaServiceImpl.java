@@ -10,6 +10,9 @@ import com.inventario.demo.model.Categoria;
 import com.inventario.demo.repository.CategoriaRepo;
 
 @Service
+/**
+ * Implementación del servicio de categorías.
+ */
 public class CategoriaServiceImpl implements CategoriaService {
 
     private final CategoriaRepo categoriaRepo;
@@ -18,11 +21,17 @@ public class CategoriaServiceImpl implements CategoriaService {
         this.categoriaRepo = categoriaRepo;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Categoria> findAll() {
         return categoriaRepo.findAll();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Categoria findById(Long id) {
 
@@ -31,6 +40,9 @@ public class CategoriaServiceImpl implements CategoriaService {
                         new ResourceNotFoundException("Categoría no encontrada"));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Categoria save(CategoriaRequest request) {
 
@@ -40,6 +52,9 @@ public class CategoriaServiceImpl implements CategoriaService {
         return categoriaRepo.save(categoria);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Categoria update(Long id, CategoriaRequest request) {
 
@@ -50,6 +65,9 @@ public class CategoriaServiceImpl implements CategoriaService {
         return categoriaRepo.save(categoria);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void delete(Long id) {
 

@@ -7,6 +7,10 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
+/**
+ * Modelo de respuesta para errores de la API.
+ * Contiene información de la excepción que se envía al cliente.
+ */
 public class ErrorResponse {
 
     private LocalDateTime timestamp;

@@ -9,6 +9,9 @@ import com.inventario.demo.model.Producto;
 import com.inventario.demo.repository.ProductoRepo;
 
 @Service
+/**
+ * Implementación del servicio de alertas de stock.
+ */
 public class AlertaServiceImpl implements AlertaService {
 
     private static final int STOCK_BAJO = 10;
@@ -20,6 +23,9 @@ public class AlertaServiceImpl implements AlertaService {
         this.productoRepo = productoRepo;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public NivelAlerta obtenerNivelAlerta(Producto producto) {
 
@@ -37,6 +43,9 @@ public class AlertaServiceImpl implements AlertaService {
         return NivelAlerta.NORMAL;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Producto> productosConStockBajo() {
 
@@ -46,6 +55,9 @@ public class AlertaServiceImpl implements AlertaService {
                 .toList();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Producto> productosConStockCritico() {
 

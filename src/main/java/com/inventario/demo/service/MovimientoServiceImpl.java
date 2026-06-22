@@ -15,6 +15,9 @@ import com.inventario.demo.repository.MovimientoRepo;
 import com.inventario.demo.repository.ProductoRepo;
 
 @Service
+/**
+ * Implementación del servicio de movimientos de inventario.
+ */
 public class MovimientoServiceImpl implements MovimientoService {
 
     private final MovimientoRepo movimientoRepo;
@@ -27,6 +30,9 @@ public class MovimientoServiceImpl implements MovimientoService {
         this.productoRepo = productoRepo;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MovimientoInventario registrarMovimiento(MovimientoRequest request) {
 
@@ -60,11 +66,17 @@ public class MovimientoServiceImpl implements MovimientoService {
         return movimientoRepo.save(movimiento);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<MovimientoInventario> findAll() {
         return movimientoRepo.findAll();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MovimientoInventario findById(Long id) {
 
@@ -73,6 +85,9 @@ public class MovimientoServiceImpl implements MovimientoService {
                         new ResourceNotFoundException("Movimiento no encontrado"));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<MovimientoInventario> findByProducto(Long productoId) {
         return movimientoRepo.findByProductoId(productoId);

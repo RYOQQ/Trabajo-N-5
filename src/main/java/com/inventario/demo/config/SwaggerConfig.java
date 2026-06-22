@@ -7,8 +7,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+/**
+ * Configuración de OpenAPI para la documentación de la API del inventario.
+ */
 public class SwaggerConfig {
 
+    /**
+     * Crea y configura el bean OpenAPI para la documentación Swagger.
+     *
+     * @return la definición OpenAPI de la API de inventario
+     */
     @Bean
     public OpenAPI inventarioAPI() {
 

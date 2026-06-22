@@ -13,6 +13,9 @@ import com.inventario.demo.repository.CategoriaRepo;
 import com.inventario.demo.repository.ProductoRepo;
 
 @Service
+/**
+ * Implementación del servicio de productos.
+ */
 public class ProductoServiceImpl implements ProductoService {
 
     private final ProductoRepo productoRepo;
@@ -25,11 +28,17 @@ public class ProductoServiceImpl implements ProductoService {
         this.categoriaRepo = categoriaRepo;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Producto> findAll() {
         return productoRepo.findAll();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Producto findById(Long id) {
 
@@ -38,6 +47,9 @@ public class ProductoServiceImpl implements ProductoService {
                         new ResourceNotFoundException("Producto no encontrado"));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Producto save(ProductoRequest request) {
 
@@ -56,6 +68,9 @@ public class ProductoServiceImpl implements ProductoService {
         return productoRepo.save(producto);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Producto update(Long id, ProductoRequest request) {
 
@@ -73,6 +88,9 @@ public class ProductoServiceImpl implements ProductoService {
         return productoRepo.save(producto);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void delete(Long id) {
 
@@ -81,11 +99,17 @@ public class ProductoServiceImpl implements ProductoService {
         productoRepo.deleteById(id);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Producto> findByCategoria(Long categoriaId) {
         return productoRepo.findByCategoria(categoriaId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Producto> buscarPorNombre(String texto) {
         return productoRepo.buscarPorNombre(texto);

@@ -7,10 +7,19 @@ import org.springframework.stereotype.Repository;
 import com.inventario.demo.model.MovimientoInventario;
 
 @Repository
+/**
+ * Implementación en memoria del repositorio de movimientos de inventario.
+ */
 public class EnMemoriaMovimientoRepo
         extends MemoriaRepositorio<MovimientoInventario, Long>
         implements MovimientoRepo {
 
+    /**
+     * Guarda o actualiza un movimiento en memoria.
+     *
+     * @param movimiento entidad movimiento a guardar
+     * @return movimiento guardado con identificador asignado
+     */
     @Override
     public MovimientoInventario save(MovimientoInventario movimiento) {
 
@@ -27,6 +36,9 @@ public class EnMemoriaMovimientoRepo
         return movimiento;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<MovimientoInventario> findByProductoId(Long productoId) {
 

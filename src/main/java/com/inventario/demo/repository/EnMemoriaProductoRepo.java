@@ -7,10 +7,19 @@ import org.springframework.stereotype.Repository;
 import com.inventario.demo.model.Producto;
 
 @Repository
+/**
+ * Implementación en memoria del repositorio de productos.
+ */
 public class EnMemoriaProductoRepo
         extends MemoriaRepositorio<Producto, Long>
         implements ProductoRepo {
 
+    /**
+     * Guarda o actualiza un producto en memoria.
+     *
+     * @param producto entidad producto a guardar
+     * @return producto guardado con identificador asignado
+     */
     @Override
     public Producto save(Producto producto) {
 
@@ -27,6 +36,9 @@ public class EnMemoriaProductoRepo
         return producto;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Producto> findByCategoria(Long categoriaId) {
 
@@ -38,6 +50,9 @@ public class EnMemoriaProductoRepo
                 .toList();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Producto> buscarPorNombre(String texto) {
 
