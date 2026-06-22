@@ -1,0 +1,8 @@
+com.inventario.demo
+com.inventario.demo.config
+com.inventario.demo.controller
+com.inventario.demo.dto
+com.inventario.demo.exception
+com.inventario.demo.model
+com.inventario.demo.repository
+com.inventario.demo.service
